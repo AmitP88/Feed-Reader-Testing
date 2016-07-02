@@ -8,6 +8,10 @@ https://discussions.udacity.com/t/project-6-final-test-issue/17187
 
 https://discussions.udacity.com/t/new-feed-changes-content-test/47601
 
+https://discussions.udacity.com/t/how-to-call-html-css-elements-in-11/19886/4
+
+https://discussions.udacity.com/t/step-16-write-a-test-that-ensures-when-a-new-feed-is-loaded-by-the-loadfeed-function-that-the-content-actually-changes/20810/9
+
 http://www.w3schools.com/jsref/prop_element_children.asp
 
 http://jasmine.github.io/2.0/introduction.html
