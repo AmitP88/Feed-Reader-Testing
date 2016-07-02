@@ -36,7 +36,7 @@ $(function() {
                 expect(allFeeds[i].url).toBeDefined();
                 expect(allFeeds[i].url.length).toBeGreaterThan(0);
             }
-         });
+        });
 
 
         /* This test loops through each feed
@@ -49,7 +49,7 @@ $(function() {
                 expect(allFeeds[i].name).toBeDefined();
                 expect(allFeeds[i].name.length).toBeGreaterThan(0);
             }
-         });
+        });
     });
 
     describe('The menu', function () {
@@ -60,7 +60,7 @@ $(function() {
 
         it('menu is hidden', function () {
             expect(document.body.classList.contains('menu-hidden')).toBeDefined();
-         });
+        });
 
          /* This test ensures the menu changes
           * visibility when the menu icon is clicked. This test
@@ -74,7 +74,7 @@ $(function() {
 
             $('a.menu-icon-link').trigger('click');
             expect($('body').hasClass('menu-hidden')).toBe(true);
-         });
+        });
 
     });
 
@@ -95,24 +95,23 @@ $(function() {
         });
     });
 
-    describe('New Feed Selection', function(){
         /* This test ensures when a new feed is loaded
          * by the loadFeed function that the content actually changes.
          */
 
+describe('New Feed Selection', function(){
         beforeEach(function(done){
-            // loads feeds
-            entries =$('.feed a').children('entry');
             loadFeed(2, done);
         });
     /*After loadFeeds runs .feed should have new entries*/
 
-        it('should have new entries', function(done){
-            expect($('.feed a').children('.entry')).not.toBe(entries);
-            done();
-        });
-            afterAll(function(done){
-            loadFeed(0,done);
-        });
+    it('should be new stuff', function(done){
+        expect($('.feed a').children('.entry')).not.toBe(true);
+        done();
     });
+    afterAll(function(done){
+        loadFeed(0,done);
+    });
+
+});
 }());
