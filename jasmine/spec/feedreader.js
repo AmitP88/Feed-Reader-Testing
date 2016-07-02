@@ -59,7 +59,7 @@ $(function() {
          */
 
         it('menu is hidden', function () {
-            expect(document.body.classList.contains('menu-hidden')).toBeDefined();
+            expect($('body').hasClass('menu-hidden')).toBeDefined();
         });
 
          /* This test ensures the menu changes
@@ -100,23 +100,42 @@ $(function() {
          */
 
     describe('New Feed Selection', function(){
-
         var content1;
         var content2;
-
         beforeEach(function(done){
-            $('.feed').empty();
-            content1 = $('.feed').html();
-            loadFeed(1, done);
+          $('.feed').empty();
+          loadFeed(0, function() {
+          content1 = $('.feed').html();
+          loadFeed(1, done);
+          });
         });
-
-        it('makes sure new feed is loaded and content changed', function(done){
-            content2 = $('.feed').html();
-            expect(content1).not.toBe(content2);
-            done();
+        it('ensures the new feed is loaded and the content changes', function(done){
+          content2 = $('.feed').html();
+          expect(content1).not.toBe(content2);
+          done(); //if I delete this line then the jasmine doesn't fully load on the page
         });
         afterAll(function(done) {
-            loadFeed(1, done);
+        loadFeed(0, done);
         });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     });
 }());
