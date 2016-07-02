@@ -95,23 +95,22 @@ $(function() {
         });
     });
 
-        /* This test ensures when a new feed is loaded
-         * by the loadFeed function that the content actually changes.
-         */
-
 describe('New Feed Selection', function(){
-        beforeEach(function(done){
-            loadFeed(2, done);
-        });
-    /*After loadFeeds runs .feed should have new entries*/
 
-    it('should be new stuff', function(done){
-        expect($('.feed a').children('.entry')).not.toBe(true);
-        done();
+    var content1;
+    var content2;
+    beforeEach(function(done){
+      $('.feed').empty();
+      content1 = $('.feed').html();
+      loadFeed(1, done);
     });
-    afterAll(function(done){
-        loadFeed(0,done);
+    it('makes sure new feed is loaded and content changed', function(done){
+      content2 = $('.feed').html();
+      expect(content1).not.toBe(content2);
+      done();
     });
-
+    afterAll(function(done) {
+      loadFeed(1, done);
+    });
 });
 }());
