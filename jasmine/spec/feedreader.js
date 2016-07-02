@@ -95,22 +95,28 @@ $(function() {
         });
     });
 
-describe('New Feed Selection', function(){
+        /* This test ensures when a new feed is loaded
+         * by the loadFeed function that the content actually changes.
+         */
 
-    var content1;
-    var content2;
-    beforeEach(function(done){
-      $('.feed').empty();
-      content1 = $('.feed').html();
-      loadFeed(1, done);
+    describe('New Feed Selection', function(){
+
+        var content1;
+        var content2;
+
+        beforeEach(function(done){
+            $('.feed').empty();
+            content1 = $('.feed').html();
+            loadFeed(1, done);
+        });
+
+        it('makes sure new feed is loaded and content changed', function(done){
+            content2 = $('.feed').html();
+            expect(content1).not.toBe(content2);
+            done();
+        });
+        afterAll(function(done) {
+            loadFeed(1, done);
+        });
     });
-    it('makes sure new feed is loaded and content changed', function(done){
-      content2 = $('.feed').html();
-      expect(content1).not.toBe(content2);
-      done();
-    });
-    afterAll(function(done) {
-      loadFeed(1, done);
-    });
-});
 }());
